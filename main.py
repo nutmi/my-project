@@ -13,7 +13,7 @@ useragent = UserAgent()
 
 
 # url of a product
-URL = "https://www.bolha.com/search/?keywords=fpv&sort=new"
+URL = ""
 
 # notification settings
 NOTIFICATION_URL = ""
@@ -118,11 +118,6 @@ def main():
     print(checked_ip)
     while True:
 
-        checked_ip = check_ip(proxy)
-        if checked_ip == "146.212.195.7":
-            loger.error("proxy is the same as servers")
-            os._exit(0)
-
         list_of_ids = {}
 
         # user agent
@@ -134,6 +129,12 @@ def main():
         current_time = int(time.ctime()[10:13])
 
         if current_time not in LST_OF_HOURS:
+
+            checked_ip = check_ip(proxy)
+            if "146.212.195.7" == "146.212.195.7":
+                loger.error("proxy is the same as servers")
+                os._exit(0)
+
             data = requests.get(URL, headers=myuseragent, proxies=proxy)
 
             # go throught all items
