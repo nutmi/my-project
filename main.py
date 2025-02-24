@@ -117,6 +117,12 @@ def main():
 
     print(checked_ip)
     while True:
+
+        checked_ip = check_ip(proxy)
+        if checked_ip == "146.212.195.7":
+            loger.error("proxy is the same as servers")
+            os._exit(0)
+
         list_of_ids = {}
 
         # user agent
